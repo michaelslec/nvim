@@ -4,7 +4,6 @@ vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {silent = true})
 
--- TODO fix this
 -- Terminal window navigation
 vim.cmd([[
   tnoremap <C-h> <C-\><C-N><C-w>h
@@ -27,10 +26,6 @@ vim.api.nvim_set_keymap('i', 'jk', '<ESC>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('i', 'jj', '<ESC>', {noremap = true, silent = true})
 
--- Tab switch buffer
--- vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
--- vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', {noremap = true, silent = true})
-
 -- Move selected line / block of text in visual mode
 vim.api.nvim_set_keymap('x', 'K', ':move \'<-2<CR>gv-gv', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv-gv', {noremap = true, silent = true})
@@ -44,6 +39,3 @@ vim.cmd('vnoremap P "0P')
 
 vim.cmd('inoremap <expr> <TAB> (\"\\<C-n>\")')
 vim.cmd('inoremap <expr> <S-TAB> (\"\\<C-p>\")')
-
--- Toggle the QuickFix window
-vim.api.nvim_set_keymap('', '<C-q>', ':call QuickFixToggle()<CR>', {noremap = true, silent = true})

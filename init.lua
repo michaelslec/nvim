@@ -1,6 +1,7 @@
-require ('plugins')
-require ('lsp')
+require('plugins')
 require('keymappings')
+
+require('lsp')
 
 vim.o.completeopt = "menuone,noselect"
 
