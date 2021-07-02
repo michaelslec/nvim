@@ -21,20 +21,29 @@ end
 require('packer').startup({function(use)
 
   -- Packer manages itself
-  use 'wbthomason/packer.nvim'
+  use { 'wbthomason/packer.nvim' }
 
   -- Reload vim config
   use { 'famiu/nvim-reload', requires = 'nvim-lua/plenary.nvim' }
 
   -- Neovim LSP
-  use 'neovim/nvim-lspconfig'
+  use { 'neovim/nvim-lspconfig' }
 
   -- Treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- Color
   use { 'christianchiarulli/nvcode-color-schemes.vim', opt = true }
-  use 'sainnhe/everforest'
+  use { 'sainnhe/everforest' }
+
+  -- Git
+  use {
+    'TimUntersberger/neogit',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim'
+    }
+  }
 
 end,
 config = {
@@ -42,3 +51,10 @@ config = {
     open_fn = require('packer.util').float,
   }
 }})
+
+
+require('neogit').setup {
+  integrations = {
+    diffview = true
+  },
+}
