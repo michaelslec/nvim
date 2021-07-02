@@ -7,3 +7,5 @@ require'lspinstall'.post_install_hook = function ()
   lsp_utils.setup_servers(lsp_utils.common_on_attach)
   vim.cmd("bufdo e")
 end
+
+require('lspsaga').init_lsp_saga()
