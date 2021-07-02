@@ -31,10 +31,10 @@ return require('packer').startup(function(use)
   -- LSP setup
   use 'neovim/nvim-lspconfig'
   use 'kabouzeid/nvim-lspinstall'
-  use 'glepnir/lspsaga.nvim'
+  use { 'jasonrhansen/lspsaga.nvim', branch = 'finder-preview-fixes' }
 
   -- Autocompletion
-  use 'hrsh7th/nvim-compe'
+  -- use 'hrsh7th/nvim-compe'
 
   -- Colors
 use {"christianchiarulli/nvcode-color-schemes.vim", opt = true}
