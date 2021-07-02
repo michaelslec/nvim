@@ -45,12 +45,31 @@ require('packer').startup({function(use)
     }
   }
 
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function() require('gitsigns').setup() end
+  }
+
 end,
 config = {
   display = {
     open_fn = require('packer.util').float,
   }
 }})
+
+
+require('nvim-treesitter.configs').setup {
+  ensure_installed = 'maintained',
+  hightlight = {
+    enable = true
+  },
+  indent = {
+    enable = true
+  },
+}
 
 
 require('neogit').setup {
