@@ -3,7 +3,7 @@ local fn = vim.fn
 
 
 --------------------------
--- Auto-download Packer -- 
+-- Auto-download Packer --
 --------------------------
 
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -15,16 +15,19 @@ end
 
 
 --------------------
--- Manage Plugins -- 
+-- Manage Plugins --
 --------------------
 
 require('packer').startup({function(use)
 
-	-- Packer manages itself
-	use 'wbthomason/packer.nvim'
+  -- Packer manages itself
+  use 'wbthomason/packer.nvim'
 
-	-- Neovim LSP
-	use 'neovim/nvim-lspconfig'
+  -- Neovim LSP
+  use 'neovim/nvim-lspconfig'
+
+  -- Color
+  use {"christianchiarulli/nvcode-color-schemes.vim", opt = true}
 
 end,
 config = {
