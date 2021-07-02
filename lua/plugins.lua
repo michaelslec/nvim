@@ -35,4 +35,7 @@ return require('packer').startup(function(use)
   -- Autocompletion
   use 'hrsh7th/nvim-compe'
 
+  -- Colors
+use {"christianchiarulli/nvcode-color-schemes.vim", opt = true}
+
 end)

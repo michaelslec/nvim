@@ -1,4 +1,4 @@
-require('settings')
+vim.cmd('source ./settings.vim')
 require('plugins')
 require('keymappings')
 
