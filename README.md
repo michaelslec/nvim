@@ -9,10 +9,20 @@ Ok, so I've wanted a really cool Neovim config for a long time. I've even gone a
 - TDD-inspired
 - Lean & Fast as hell
 - Awesome completions
-- Beautiful
+- Beautiful UI
 
 Okay, that's a lot of things. We're going to start with, piece by piece, adding functionality that I need in my editor. After it works right, we'll make it look nice. Finally, this cycle will happen one feature at a time, only adding features I need as I'm working my job.
 
-# To-do
-- LSP set up for Python and Django
-- Autocompletion
+# To-do (General)
+- [ ] LSP set up for Python and Django
+  - [ ] keybindings
+- [ ] Sane defaults
+- [ ] Treesitter
+- [ ] Markdown support
+- [ ] EFM setup
+- [ ] Git integration
+- [ ] Better terminal navigation
+
+# Plugins
+- [ ] [Lspinstall](https://github.com/kabouzeid/nvim-lspinstall)
+- [ ] [Autocompletion](https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion)
