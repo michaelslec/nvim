@@ -1,6 +1,5 @@
-let cache_path = stdpath('cache') " Directory of cache
-
 colorscheme lunar " Set colorscheme
+
 
 syntax on " Syntax highlighting
 filetype plugin on " Filetype detection
@@ -29,7 +28,7 @@ set noshowmode " We don't need to see things like -- INSERT -- anymore
 set nobackup " This is recommended by coc
 set nowritebackup " This is recommended by coc
 set noswapfile " Do not write any swp files
-execute "set undodir=".cache_path."/undo"
+set undodir=$HOME/.cache/nvim/undo
 set undofile " Enable persistent undo
 set signcolumn="yes" " Always show the signcolumn, otherwise it would shift the text each time
 set updatetime=300 " Faster completion
