@@ -21,6 +21,7 @@ Okay, that's a lot of things. We're going to start with, piece by piece, adding 
 - [ ] EFM setup
 - [ ] Git integration
 - [ ] Better terminal navigation
+- [ ] [lua formatting](https://www.chrisatmachine.com/Neovim/28-neovim-lua-development)
 
 # Plugins
 - [ ] [Lspinstall](https://github.com/kabouzeid/nvim-lspinstall)
