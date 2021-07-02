@@ -1,9 +1,8 @@
+require('settings')
 require('plugins')
 require('keymappings')
 
 require('lsp')
-
-vim.o.completeopt = "menuone,noselect"
 
 require'compe'.setup {
   enabled = true;
