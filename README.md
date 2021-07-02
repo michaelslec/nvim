@@ -15,7 +15,7 @@ Okay, that's a lot of things. We're going to start with, piece by piece, adding 
 
 # To-do (General)
 - [ ] LSP set up for Python and Django
-  - [ ] keybindings
+  - [ ] [keybindings](https://github.com/neovim/nvim-lspconfig)
 - [ ] Sane defaults
 - [ ] Treesitter
 - [ ] Markdown support
