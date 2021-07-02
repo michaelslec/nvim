@@ -1,11 +1,10 @@
 local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
 local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
-local g = vim.g      -- a table to access global variables
 local opt = vim.opt  -- to set options
 
 cmd 'syntax enable'                 -- Enables syntax highlighing
+require('colors')
 
-cmd 'colorscheme lunar'            -- Put your favorite colorscheme here
 opt.completeopt = {'menuone', 'noselect'}  -- Completion options (for deoplete)
 opt.shortmess:append('c')           -- Don't pass messages to |ins-completion-menu|
 opt.iskeyword:append('-')           -- treat dash separated words as a word text object"

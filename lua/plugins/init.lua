@@ -23,11 +23,18 @@ require('packer').startup({function(use)
   -- Packer manages itself
   use 'wbthomason/packer.nvim'
 
+  -- Reload vim config
+  use { 'famiu/nvim-reload', requires = 'nvim-lua/plenary.nvim' }
+
   -- Neovim LSP
   use 'neovim/nvim-lspconfig'
 
+  -- Treesitter
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
   -- Color
-  use {"christianchiarulli/nvcode-color-schemes.vim", opt = true}
+  use { 'christianchiarulli/nvcode-color-schemes.vim', opt = true }
+  use 'sainnhe/everforest'
 
 end,
 config = {
