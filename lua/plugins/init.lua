@@ -29,14 +29,14 @@ require('packer').startup({function(use)
   -- Neovim LSP
   use { 'neovim/nvim-lspconfig' }
 
-  -- Treesitter
+  -- Treesitter improves syntax highlighting and indentation!
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- Color
   use { 'christianchiarulli/nvcode-color-schemes.vim', opt = true }
   use { 'sainnhe/everforest' }
 
-  -- Git
+  -- Git integration
   use {
     'TimUntersberger/neogit',
     requires = {
@@ -45,6 +45,7 @@ require('packer').startup({function(use)
     }
   }
 
+  -- Git signs in border
   use {
     'lewis6991/gitsigns.nvim',
     requires = {
@@ -53,6 +54,9 @@ require('packer').startup({function(use)
     },
     config = function() require('gitsigns').setup() end
   }
+
+  -- Whichkey shows you all your mappings
+  use { 'folke/which-key.nvim' }
 
 end,
 config = {
