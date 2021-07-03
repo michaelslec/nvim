@@ -3,9 +3,14 @@ local opts = {noremap = true, silent = true}
 
 vim.g.mapleader = ' '
 
+-- Save, quit, delete, reload
 set_keymap('n', '<leader>w', ':w<CR>', opts)
+set_keymap('n', '<leader>q', ':q<CR>', opts)
 set_keymap('n', '<leader>d', ':bd<CR>', opts)
 set_keymap('n', '<leader>r', ':Restart<CR>', opts)
+
+-- Git
+set_keymap('n', '<leader>g', ':Neogit<CR>', opts)
 
 -- better window movement
 set_keymap('n', '<C-h>', '<C-w>h', opts)
