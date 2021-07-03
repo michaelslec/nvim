@@ -5,6 +5,7 @@ vim.g.mapleader = ' '
 
 set_keymap('n', '<leader>w', ':w<CR>', opts)
 set_keymap('n', '<leader>d', ':bd<CR>', opts)
+set_keymap('n', '<leader>r', ':Restart<CR>', opts)
 
 -- better window movement
 set_keymap('n', '<C-h>', '<C-w>h', opts)
