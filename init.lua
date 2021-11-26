@@ -14,7 +14,6 @@ require('packer').startup({function(use)
   use 'rafi/awesome-vim-colorschemes'
 
   -- Automatically set up your configuration after cloning packer.nvim
-
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
@@ -38,7 +37,7 @@ local opt = vim.opt
 opt.number = true
 opt.relativenumber = true
 
-vim.cmd('colorscheme mountaineer')
+vim.cmd('colorscheme github')
 vim.g.neovide_input_use_logo = true
 
 
@@ -48,18 +47,32 @@ vim.g.neovide_input_use_logo = true
 
 vim.g.mapleader = ' '
 
-local kDEFAULT_OPTS = {noremap = true, silent = false}
+local kNOREMAP_SILENT = {noremap = true, silent = false}
 
 local map = vim.api.nvim_set_keymap
+local function nmap(lhs, rhs, opts) 
+	map('n', lhs, rhs, opts)
+end
+local function imap(lhs, rhs, opts) 
+	map('i', lhs, rhs, opts)
+end
+local function tmap(lhs, rhs, opts) 
+	map('t', lhs, rhs, opts)
+end
 
+nmap('<leader>w', ':w<CR>', kNOREMAP_SILENT)
+nmap('<leader>q', ':q<CR>', kNOREMAP_SILENT)
+nmap('<leader>d', ':bd<CR>', kNOREMAP_SILENT)
 
-map('n', '<C-h>', '<C-w>h', kDEFAULT_OPTS)
-map('n', '<C-j>', '<C-w>j', kDEFAULT_OPTS)
-map('n', '<C-k>', '<C-w>k', kDEFAULT_OPTS)
-map('n', '<C-l>', '<C-w>l', kDEFAULT_OPTS)
+nmap('<C-h>', '<C-w>h', kNOREMAP_SILENT)
+nmap('<C-j>', '<C-w>j', kNOREMAP_SILENT)
+nmap('<C-k>', '<C-w>k', kNOREMAP_SILENT)
+nmap('<C-l>', '<C-w>l', kNOREMAP_SILENT)
 
-map('i', 'jk', '<ESC>', kDEFAULT_OPTS)
-map('i', 'kj', '<ESC>', kDEFAULT_OPTS)
+imap('jk', '<ESC>', kNOREMAP_SILENT)
+tmap('jk', '<C-\\><C-n>', kNOREMAP_SILENT)
 
-map('i', '<D-s>', '<ESC>:w<CR>a', kDEFAULT_OPTS)
-map('n', '<D-s>', ':w<CR>', kDEFAULT_OPTS)
+imap('<D-s>', '<ESC>:w<CR>a', kNOREMAP_SILENT)
+imap('<leader>s', '<ESC>:w<CR>a', kNOREMAP_SILENT)
+nmap('<D-s>', ':w<CR>', kNOREMAP_SILENT)
+nmap('<leader>s', ':w<CR>', kNOREMAP_SILENT)
