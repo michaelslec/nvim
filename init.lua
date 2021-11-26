@@ -8,7 +8,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-require('packer').startup({function(use)
+require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'rafcamlet/nvim-luapad'
   use 'rafi/awesome-vim-colorschemes'
@@ -20,19 +20,14 @@ require('packer').startup({function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
 
+  use 'nvim-treesitter/nvim-treesitter'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end
-end,
-config = {
-  display = {
-    open_fn = function()
-      return require('packer.util').float
-    end
-  },
-}})
+end)
 
 
 -------------------
