@@ -11,8 +11,10 @@ end
 require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'
   use 'rafcamlet/nvim-luapad'
+  use 'rafi/awesome-vim-colorschemes'
 
   -- Automatically set up your configuration after cloning packer.nvim
+
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
@@ -35,6 +37,9 @@ local opt = vim.opt
 
 opt.number = true
 opt.relativenumber = true
+
+vim.cmd('colorscheme mountaineer')
+vim.g.neovide_input_use_logo = true
 
 
 -----------------
