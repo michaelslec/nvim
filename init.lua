@@ -55,13 +55,13 @@ local kNOREMAP_SILENT = {noremap = true, silent = false}
 
 local map = vim.api.nvim_set_keymap
 local function nmap(lhs, rhs, opts)
-	map('n', lhs, rhs, opts)
+  map('n', lhs, rhs, opts)
 end
 local function imap(lhs, rhs, opts)
-	map('i', lhs, rhs, opts)
+  map('i', lhs, rhs, opts)
 end
 local function tmap(lhs, rhs, opts)
-	map('t', lhs, rhs, opts)
+  map('t', lhs, rhs, opts)
 end
 
 nmap('<leader>w', ':w<CR>', kNOREMAP_SILENT)
@@ -137,71 +137,71 @@ local sumneko_binary_path = vim.fn.exepath('lua-language-server')
 local sumneko_root_path = vim.fn.fnamemodify(sumneko_binary_path, ':h:h:h')
 
 local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
 
 nvim_lsp.sumneko_lua.setup {
-    cmd = {sumneko_binary_path, "-E", sumneko_root_path .. "/main.lua"};
-    settings = {
-        Lua = {
-        runtime = {
-            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-            version = 'LuaJIT',
-            -- Setup your lua path
-            path = runtime_path,
-        },
-        diagnostics = {
-            -- Get the language server to recognize the `vim` global
-            globals = {'vim'},
-        },
-        workspace = {
-            -- Make the server aware of Neovim runtime files
-            library = vim.api.nvim_get_runtime_file("", true),
-        },
-	-- Do not send telemetry data containing a randomized but unique identifier
-	telemetry = {
-		enable = false,
-        },
-        },
+  cmd = {sumneko_binary_path, '-E', sumneko_root_path .. '/main.lua'};
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+        -- Setup your lua path
+        path = runtime_path,
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file('', true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
     },
+  },
 }
 
-vim.opt.completeopt = "menuone,noselect"
+vim.opt.completeopt = 'menuone,noselect'
 
 -- nvim-cmp setup
 local cmp  = require('cmp')
 cmp.setup {
-   mapping = {
-      ["<C-p>"] = cmp.mapping.select_prev_item(),
-      ["<C-n>"] = cmp.mapping.select_next_item(),
-      ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<C-Space>"] = cmp.mapping.complete(),
-      ["<C-e>"] = cmp.mapping.close(),
-      ["<CR>"] = cmp.mapping.confirm {
-         behavior = cmp.ConfirmBehavior.Replace,
-         select = true,
-      },
-      ["<Tab>"] = function(fallback)
-         if cmp.visible() then
-            cmp.select_next_item()
-         else
-            fallback()
-         end
-      end,
-      ["<S-Tab>"] = function(fallback)
-         if cmp.visible() then
-            cmp.select_prev_item()
-         else
-            fallback()
-         end
-      end,
-   },
-   sources = {
-      { name = "nvim_lsp" },
-      { name = "buffer" },
-      { name = "nvim_lua" },
-      { name = "cmdline" },
-      { name = "path" },
-   },
+  mapping = {
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+    ['<Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
+    end,
+    ['<S-Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end,
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+    { name = 'nvim_lua' },
+    { name = 'cmdline' },
+    { name = 'path' },
+  },
 }
