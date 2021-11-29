@@ -105,6 +105,8 @@ imap('<leader>s', '<ESC>:w<CR>a', kNOREMAP_SILENT)
 nmap('<D-s>', ':w<CR>', kNOREMAP_SILENT)
 nmap('<leader>s', ':w<CR>', kNOREMAP_SILENT)
 
+nmap('gf', ':edit <cfile><cr>', kNOREMAP_SILENT)
+
 
 ---------
 -- LSP --
