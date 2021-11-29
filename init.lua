@@ -64,6 +64,7 @@ opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.guifont = 'FiraCode Nerd Font:h16'
+opt.termguicolors = true
 
 vim.cmd('colorscheme onedark')
 vim.g.neovide_input_use_logo = true
