@@ -22,6 +22,24 @@ require('packer').startup(function(use)
 
   use 'nvim-treesitter/nvim-treesitter'
 
+  -- use 'lspcontainers/lspcontainers.nvim'
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require('gitsigns').setup {
+        word_diff = true,
+        current_line_blame = true,
+        current_line_blame_formatter_opts = {
+          relative_time = true
+        },
+      }
+    end
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
