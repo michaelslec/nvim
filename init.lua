@@ -41,6 +41,12 @@ opt.number = true
 opt.relativenumber = true
 opt.signcolumn = 'yes'
 
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.guifont = 'FiraCode Nerd Font:h16'
+
 vim.cmd('colorscheme onedark')
 vim.g.neovide_input_use_logo = true
 
