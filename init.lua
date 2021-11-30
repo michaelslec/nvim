@@ -20,9 +20,35 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
 
-  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
 
-  -- use 'lspcontainers/lspcontainers.nvim'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require('nvim-treesitter.configs').setup {
+        ensure_installed = "maintained",
+        highlight = {
+          enable = true,
+        },
+        incremental_selection = {
+          enable = true,
+        },
+        indent = {
+          enable = true,
+        },
+      }
+    end
+  }
+
 
   use {
     'lewis6991/gitsigns.nvim',
