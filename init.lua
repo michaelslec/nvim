@@ -21,6 +21,13 @@ require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
 
   use {
+    'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('nvim-web-devicons').setup()
+    end
+  }
+
+  use {
     "folke/which-key.nvim",
     config = function()
       require("which-key").setup {
@@ -28,6 +35,19 @@ require('packer').startup(function(use)
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
       }
+    end
+  }
+
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    },
+    config = function()
+      local tscope = require('telescope')
+      tscope.setup {}
+      tscope.load_extension('fzf')
     end
   }
 
