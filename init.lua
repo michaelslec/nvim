@@ -84,6 +84,7 @@ opt.clipboard='unnamedplus'
 opt.number = true
 opt.relativenumber = true
 opt.signcolumn = 'yes'
+opt.completeopt = 'menuone,noselect'
 
 opt.tabstop = 2
 opt.softtabstop = 2
@@ -91,6 +92,8 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.guifont = 'FiraCode Nerd Font:h16'
 opt.termguicolors = true
+
+opt.timeoutlen = 350
 
 vim.cmd('colorscheme onedark')
 vim.g.neovide_input_use_logo = true
@@ -133,6 +136,56 @@ nmap('<D-s>', ':w<CR>', kNOREMAP_SILENT)
 nmap('<leader>s', ':w<CR>', kNOREMAP_SILENT)
 
 nmap('gf', ':edit <cfile><cr>', kNOREMAP_SILENT)
+
+nmap('<leader>p', '<cmd>lua require("telescope.builtin").find_files()<cr>', kNOREMAP_SILENT)
+nmap('<leader>F', '<cmd>lua require("telescope.builtin").live_grep()<cr>', kNOREMAP_SILENT)
+nmap('<leader>b', '<cmd>lua require("telescope.builtin").buffers()<cr>', kNOREMAP_SILENT)
+nmap('<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', kNOREMAP_SILENT)
+
+
+-------------
+-- Plugins --
+-------------
+
+require('telescope').load_extension('fzf')
+
+-- nvim-cmp setup
+local cmp  = require('cmp')
+cmp.setup {
+  mapping = {
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+    ['<Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
+    end,
+    ['<S-Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end,
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+    { name = 'nvim_lua' },
+    { name = 'cmdline' },
+    { name = 'path' },
+  },
+}
 
 
 ---------
@@ -216,45 +269,5 @@ nvim_lsp.sumneko_lua.setup {
         enable = false,
       },
     },
-  },
-}
-
-vim.opt.completeopt = 'menuone,noselect'
-
--- nvim-cmp setup
-local cmp  = require('cmp')
-cmp.setup {
-  mapping = {
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-    ['<C-n>'] = cmp.mapping.select_next_item(),
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
-    ['<Tab>'] = function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        fallback()
-      end
-    end,
-    ['<S-Tab>'] = function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      else
-        fallback()
-      end
-    end,
-  },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-    { name = 'nvim_lua' },
-    { name = 'cmdline' },
-    { name = 'path' },
   },
 }
