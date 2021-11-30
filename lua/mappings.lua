@@ -26,7 +26,6 @@ imap('jk', '<ESC>', kNOREMAP_SILENT)
 tmap('jk', '<C-\\><C-n>', kNOREMAP_SILENT)
 
 imap('<D-s>', '<ESC>:w<CR>a', kNOREMAP_SILENT)
-imap('<leader>s', '<ESC>:w<CR>a', kNOREMAP_SILENT)
 nmap('<D-s>', ':w<CR>', kNOREMAP_SILENT)
 nmap('<leader>s', ':w<CR>', kNOREMAP_SILENT)
 
