@@ -15,5 +15,5 @@ opt.termguicolors = true
 
 opt.timeoutlen = 350
 
-vim.cmd('colorscheme onedark')
+vim.cmd('colorscheme tokyonight')
 vim.g.neovide_input_use_logo = true

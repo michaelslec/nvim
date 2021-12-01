@@ -4,7 +4,6 @@ local packer_bootstrap, packer = utils.get_or_download_packer()
 packer.startup({function(use)
   use 'wbthomason/packer.nvim'
   use 'rafcamlet/nvim-luapad'
-  use 'rafi/awesome-vim-colorschemes'
   use 'neovim/nvim-lspconfig'
 
   use 'hrsh7th/cmp-nvim-lsp'
@@ -12,6 +11,12 @@ packer.startup({function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
+
+  -- Colorschemes
+  use 'EdenEast/nightfox.nvim'
+  use 'savq/melange'
+  use 'sainnhe/everforest'
+  use 'folke/tokyonight.nvim'
 
   use 'tpope/vim-vinegar'
 

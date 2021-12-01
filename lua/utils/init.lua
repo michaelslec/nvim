@@ -30,7 +30,7 @@ M.get_or_download_packer = function()
     print "Packer cloned successfully."
     return true, packer
   else
-    error("Couldn't clone packer !\nPacker path: " .. packer_path .. "\n" .. packer)
+    error("Couldn't clone packer!\nPacker path: " .. packer_path .. "\n" .. packer)
   end
 end
 
