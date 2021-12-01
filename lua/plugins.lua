@@ -1,10 +1,7 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-end
+local utils = require('utils')
+local packer_bootstrap, packer = utils.get_or_download_packer()
 
-require('packer').startup(function(use)
+packer.startup({function(use)
   use 'wbthomason/packer.nvim'
   use 'rafcamlet/nvim-luapad'
   use 'rafi/awesome-vim-colorschemes'
@@ -15,6 +12,8 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
+
+  use 'tpope/vim-vinegar'
 
   use {
     'kyazdani42/nvim-web-devicons',
@@ -73,7 +72,6 @@ require('packer').startup(function(use)
     },
     config = function()
       require('gitsigns').setup {
-        word_diff = true,
         current_line_blame = true,
         current_line_blame_formatter_opts = {
           relative_time = true
@@ -85,6 +83,21 @@ require('packer').startup(function(use)
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
-    require('packer').sync()
+    packer.sync()
   end
-end)
+end,
+  config = {
+    display = {
+      open_fn = function()
+        return require('packer.util').float { border = "single" }
+      end,
+      prompt_border = "single",
+    },
+    git = {
+      clone_timeout = 600, -- Timeout, in seconds, for git clones
+    },
+    auto_clean = true,
+    compile_on_sync = true,
+    auto_reload_compiled = true
+  }
+})
