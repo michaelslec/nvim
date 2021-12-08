@@ -4,5 +4,4 @@
 - Add Plugins
   - You Surround Me
   - commenter
-  - neogit
   - autorooter

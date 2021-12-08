@@ -31,9 +31,11 @@ imap('<D-s>', '<ESC>:w<CR>a', kNOREMAP_SILENT)
 nmap('<D-s>', ':w<CR>', kNOREMAP_SILENT)
 nmap('<leader>s', ':w<CR>', kNOREMAP_SILENT)
 
-nmap('gf', ':edit <cfile><cr>', kNOREMAP_SILENT)
+nmap('gf', ':edit <cfile><CR>', kNOREMAP_SILENT)
 
-nmap('<leader>p', '<cmd>lua require("telescope.builtin").find_files()<cr>', kNOREMAP_SILENT)
-nmap('<leader>F', '<cmd>lua require("telescope.builtin").live_grep()<cr>', kNOREMAP_SILENT)
-nmap('<leader>b', '<cmd>lua require("telescope.builtin").buffers()<cr>', kNOREMAP_SILENT)
-nmap('<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', kNOREMAP_SILENT)
+nmap('<leader>p', '<cmd>lua require("telescope.builtin").find_files()<CR>', kNOREMAP_SILENT)
+nmap('<leader>F', '<cmd>lua require("telescope.builtin").live_grep()<CR>', kNOREMAP_SILENT)
+nmap('<leader>b', '<cmd>lua require("telescope.builtin").buffers()<CR>', kNOREMAP_SILENT)
+nmap('<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<CR>', kNOREMAP_SILENT)
+
+nmap('<leader>g', '<cmd>Neogit<CR>', kNOREMAP_SILENT)

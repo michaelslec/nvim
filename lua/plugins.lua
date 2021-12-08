@@ -22,6 +22,14 @@ packer.startup({function(use)
 
   use 'neovimhaskell/haskell-vim'
   use {
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      require('neogit').setup {}
+    end
+  }
+
+  use {
     'kyazdani42/nvim-web-devicons',
     config = function()
       require('nvim-web-devicons').setup()
