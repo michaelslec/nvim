@@ -20,6 +20,7 @@ packer.startup({function(use)
 
   use 'tpope/vim-vinegar'
 
+  use 'neovimhaskell/haskell-vim'
   use {
     'kyazdani42/nvim-web-devicons',
     config = function()
@@ -54,6 +55,7 @@ packer.startup({function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     config = function()
+      require'nvim-treesitter.install'.compilers = { "gcc" }
       require('nvim-treesitter.configs').setup {
         ensure_installed = "maintained",
         highlight = {
