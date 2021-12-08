@@ -17,6 +17,8 @@ nmap('<leader>w', ':w<CR>', kNOREMAP_SILENT)
 nmap('<leader>q', ':q<CR>', kNOREMAP_SILENT)
 nmap('<leader>d', ':bd<CR>', kNOREMAP_SILENT)
 
+nmap('<leader>.', ':tabe $MYVIMRC<CR>', kNOREMAP_SILENT)
+
 nmap('<C-h>', '<C-w>h', kNOREMAP_SILENT)
 nmap('<C-j>', '<C-w>j', kNOREMAP_SILENT)
 nmap('<C-k>', '<C-w>k', kNOREMAP_SILENT)
