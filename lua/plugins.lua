@@ -4,7 +4,10 @@ local packer_bootstrap, packer = utils.get_or_download_packer()
 packer.startup({function(use)
   use 'wbthomason/packer.nvim'
   use 'rafcamlet/nvim-luapad'
-  use 'neovim/nvim-lspconfig'
+  use {
+    'neovim/nvim-lspconfig',
+    'williamboman/nvim-lsp-installer',
+  }
 
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
