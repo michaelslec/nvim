@@ -5,8 +5,8 @@ packer.startup({function(use)
   use 'wbthomason/packer.nvim'
   use 'rafcamlet/nvim-luapad'
   use {
-    'neovim/nvim-lspconfig',
     'williamboman/nvim-lsp-installer',
+    'neovim/nvim-lspconfig',
   }
 
   use 'hrsh7th/cmp-nvim-lsp'
@@ -14,6 +14,7 @@ packer.startup({function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
+  use 'SirVer/ultisnips'
 
   -- Colorschemes
   use 'EdenEast/nightfox.nvim'
@@ -66,9 +67,9 @@ packer.startup({function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     config = function()
-      require'nvim-treesitter.install'.compilers = { "gcc" }
+      require('nvim-treesitter.install').compilers = { "gcc" }
       require('nvim-treesitter.configs').setup {
-        ensure_installed = "maintained",
+        ensure_installed = "all",
         highlight = {
           enable = true,
         },
