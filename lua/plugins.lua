@@ -9,8 +9,7 @@ packer.startup({function(use)
     {
       'neovim/nvim-lspconfig',
       config = function()
-        local lspconfig = require('lspconfig')
-        local default_servers = { 'pyright', 'rust_analyzer', 'tsserver', 'eslint' }
+        require('nvim-lsp-installer').setup {}
 
         -- Mappings.
         -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -46,6 +45,7 @@ packer.startup({function(use)
           vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
         end
 
+        local lspconfig = require('lspconfig')
         lspconfig.sumneko_lua.setup {
           settings = {
             Lua = {
@@ -67,6 +67,7 @@ packer.startup({function(use)
 
         -- Use a loop to conveniently call 'setup' on multiple default_servers and
         -- map buffer local keybindings when the language server attaches
+        local default_servers = { 'pyright', 'rust_analyzer', 'tsserver', 'eslint', 'elmls' }
         for _, lsp in pairs(default_servers) do
           lspconfig[lsp].setup {
             on_attach = on_attach,

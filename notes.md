@@ -9,6 +9,10 @@
   - nest.nvim
   - Multiple cursors? (Think kakoune)
 
+# Problems
+- finder uses directory that nvim was launched in
+- Pain in the ass to set up most LSPs
+
 
 # References
 - [Awesome Neovim](https://github.com/rockerBOO/awesome-neovim)
