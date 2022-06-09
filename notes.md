@@ -10,9 +10,9 @@
   - Multiple cursors? (Think kakoune)
 
 # Problems
-- finder uses directory that nvim was launched in
+- Finder uses directory that nvim was launched in
 - Pain in the ass to set up most LSPs
-
+- Using the terminal is a pain in the ass
 
 # References
 - [Awesome Neovim](https://github.com/rockerBOO/awesome-neovim)
