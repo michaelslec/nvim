@@ -1,7 +1,7 @@
 local utils = require('utils')
 local packer_bootstrap, packer = utils.get_or_download_packer()
 
-packer.startup({function(use)
+packer.startup({ function(use)
   use 'wbthomason/packer.nvim'
   use 'rafcamlet/nvim-luapad'
   use {
@@ -13,7 +13,7 @@ packer.startup({function(use)
 
         -- Mappings.
         -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-        local opts = { noremap=true, silent=true }
+        local opts = { noremap = true, silent = true }
         vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
         vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
         vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -27,7 +27,7 @@ packer.startup({function(use)
 
           -- Mappings.
           -- See `:help vim.lsp.*` for documentation on any of the below functions
-          local bufopts = { noremap=true, silent=true, buffer=bufnr }
+          local bufopts = { noremap = true, silent = true, buffer = bufnr }
           vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -51,7 +51,7 @@ packer.startup({function(use)
             Lua = {
               diagnostics = {
                 -- Get the language server to recognize the `vim` global
-                globals = {'vim'},
+                globals = { 'vim' },
               },
               workspace = {
                 -- Make the server aware of Neovim runtime files
@@ -97,7 +97,6 @@ packer.startup({function(use)
 
   use 'tpope/vim-vinegar'
 
-  use 'neovimhaskell/haskell-vim'
   use {
     'TimUntersberger/neogit',
     requires = 'nvim-lua/plenary.nvim',
@@ -128,12 +127,13 @@ packer.startup({function(use)
     'nvim-telescope/telescope.nvim',
     requires = {
       'nvim-lua/plenary.nvim',
-      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     },
     config = function()
       local tscope = require('telescope')
       tscope.setup {}
       tscope.load_extension('fzf')
+      tscope.load_extension('projects')
     end
   }
 
@@ -173,24 +173,52 @@ packer.startup({function(use)
     end
   }
 
+  use {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("project_nvim").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
+
+  use {
+    "numToStr/FTerm.nvim",
+    config = function()
+      local fterm = require('FTerm')
+
+      fterm.setup {}
+
+      vim.api.nvim_create_user_command('FTermOpen', fterm.open, { bang = true })
+      vim.api.nvim_create_user_command('FTermClose', fterm.close, { bang = true })
+      vim.api.nvim_create_user_command('FTermExit', fterm.exit, { bang = true })
+      vim.api.nvim_create_user_command('FTermToggle', fterm.toggle, { bang = true })
+
+      vim.keymap.set('n', '<D-t>', '<CMD>lua require("FTerm").toggle()<CR>')
+      vim.keymap.set('t', '<D-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+    end
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
     packer.sync()
   end
 end,
-  config = {
-    display = {
-      open_fn = function()
-        return require('packer.util').float { border = "single" }
-      end,
-      prompt_border = "single",
-    },
-    git = {
-      clone_timeout = 600, -- Timeout, in seconds, for git clones
-    },
-    auto_clean = true,
-    compile_on_sync = true,
-    auto_reload_compiled = true
-  }
+config = {
+  display = {
+    open_fn = function()
+      return require('packer.util').float { border = "single" }
+    end,
+    prompt_border = "single",
+  },
+  git = {
+    clone_timeout = 600, -- Timeout, in seconds, for git clones
+  },
+  auto_clean = true,
+  compile_on_sync = true,
+  auto_reload_compiled = true
+}
 })
